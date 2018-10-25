@@ -9,6 +9,7 @@ public class SuperArray{
 
   public void clear(){
     size = 0;
+    data = new String[0];
   }
 
   public int size(){
@@ -21,17 +22,21 @@ public class SuperArray{
 
   public boolean add(String element){
     data[size] = element;
+    return true;
   }
 
   public String toString(){
-    String output = "[" + data[0];
+    String output = "[" ;
+    if (size > 0){
+      output += data[0];
+    }
     for (int x = 1; x < this.size(); x++){
       output += "," + data[x];
     }
     return output + "]";
   }
 
-  public toStringDebug(){
+  public String toStringDebug(){
     String output = "[" + data[0];
     for (int x = 1; x < data.length ; x++){
       output += "," + data[x];
@@ -47,12 +52,55 @@ public class SuperArray{
   }
 
   public String set(int index, String value){
+    String replaced = data[index];
     if (index < 0 || index >= size()){
       return null;
     }else{
     data[index] = value;
     }
+    return replaced;
   }
 
-  
+  private void resize(){
+    String[] newData = new String[(size + 1) * 2];
+    for (int x = 0; x < this.size(); x++){
+      newData[x] = data[x];
+    }
+    data = newData;
+  }
+
+  public boolean contains(String target){
+    for (int x = 0; x < this.size(); x++){
+      if (this.get(x) == target){
+        return true;
+      }
+    }
+    return false;
+  }
+
+  public int indexof(String target){
+    return 0;
+  }
+
+  public int lastIndexOf(String target){
+    return 0;
+  }
+  public void add (int index, String target){
+    if (index < 0 || index > size()){
+      System.out.println("error");
+    }
+  }
+
+  public String remove(int index){
+    if (index < 0 || index >= size()){
+      return "";
+    }
+    return "";
+  }
+
+  public boolean remove (String target){
+    return true;
+  }
+
+
 }
