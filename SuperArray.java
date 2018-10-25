@@ -21,25 +21,26 @@ public class SuperArray{
   }
 
   public boolean add(String element){
-    data[size] = element;
+    data[this.size()] = element;
+    size++;
     return true;
   }
 
   public String toString(){
-    String output = "[" ;
-    if (size > 0){
-      output += data[0];
+    String output = "";
+    if (this.size() > 0){
+      output += this.get(0);
     }
     for (int x = 1; x < this.size(); x++){
-      output += "," + data[x];
+      output += "," + this.get(0);
     }
-    return output + "]";
+    return "[" + output + "]";
   }
 
   public String toStringDebug(){
-    String output = "[" + data[0];
+    String output = "[" + this.get(0);
     for (int x = 1; x < data.length ; x++){
-      output += "," + data[x];
+      output += "," + this.get(0);
     }
     return output + "]";
   }
@@ -89,6 +90,7 @@ public class SuperArray{
     if (index < 0 || index > size()){
       System.out.println("error");
     }
+    size++;
   }
 
   public String remove(int index){
