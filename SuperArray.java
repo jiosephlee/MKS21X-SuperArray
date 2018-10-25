@@ -32,7 +32,7 @@ public class SuperArray{
       output += this.get(0);
     }
     for (int x = 1; x < this.size(); x++){
-      output += "," + this.get(0);
+      output += "," + this.get(x);
     }
     return "[" + output + "]";
   }
@@ -40,7 +40,7 @@ public class SuperArray{
   public String toStringDebug(){
     String output = "[" + this.get(0);
     for (int x = 1; x < data.length ; x++){
-      output += "," + this.get(0);
+      output += "," + this.get(x);
     }
     return output + "]";
   }
@@ -53,7 +53,7 @@ public class SuperArray{
   }
 
   public String set(int index, String value){
-    String replaced = data[index];
+    String replaced = this.get(index);
     if (index < 0 || index >= size()){
       return null;
     }else{
