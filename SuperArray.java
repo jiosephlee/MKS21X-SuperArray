@@ -41,7 +41,10 @@ public class SuperArray{
   }
 
   public String toStringDebug(){
-    String output = "[" + data[0];
+    String output = "[";
+    if (this.size() > 0){
+      output += this.get(0);
+    }
     for (int x = 1; x < data.length ; x++){
       output += ", " + data[x];
     }
@@ -107,6 +110,10 @@ public class SuperArray{
     }
     int x = 0;
     SuperArray newCopy = new SuperArray();
+    if (index == size){
+      add(target);
+    }
+    else{
     while (x < size){
       if (x == index){
         newCopy.add(target);
@@ -118,6 +125,7 @@ public class SuperArray{
     }
     data = newCopy.data;
     size = newCopy.size();
+    }
   }
 
   public String remove(int index){
@@ -125,7 +133,8 @@ public class SuperArray{
     String output = "";
     SuperArray newCopy = new SuperArray();
     if (index < 0 || index >= size()){
-      return "Error: Index out of bounds";
+      System.out.println("Error: Index out of bounds");
+      return null;
     }
     while (x < size){
       if (x == index){
