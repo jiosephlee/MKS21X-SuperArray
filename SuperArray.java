@@ -21,6 +21,9 @@ public class SuperArray{
   }
 
   public boolean add(String element){
+    if (size == data.length){
+      resize();
+    }
     data[this.size()] = element;
     size++;
     return true;
@@ -32,7 +35,7 @@ public class SuperArray{
       output += this.get(0);
     }
     for (int x = 1; x < this.size(); x++){
-      output += "," + this.get(x);
+      output += ", " + this.get(x);
     }
     return "[" + output + "]";
   }
@@ -40,7 +43,7 @@ public class SuperArray{
   public String toStringDebug(){
     String output = "[" + this.get(0);
     for (int x = 1; x < data.length ; x++){
-      output += "," + this.get(x);
+      output += ", " + this.get(x);
     }
     return output + "]";
   }
@@ -48,8 +51,8 @@ public class SuperArray{
   public String get(int index){
     if (index < 0 || index >= size()){
       return null;
-    }
-    return data[index];
+    } else{
+    return data[index];}
   }
 
   public String set(int index, String value){
@@ -79,12 +82,22 @@ public class SuperArray{
     return false;
   }
 
-  public int indexof(String target){
-    return 0;
+  public int indexOf(String target){
+    for (int x = 0; x < this.size(); x++){
+      if (this.get(x) == target){
+        return x;
+      }
+    }
+    return -1;
   }
 
   public int lastIndexOf(String target){
-    return 0;
+    for (int x = this.size() - 1 ; x <= 0; x--){
+      if (this.get(x) == target){
+        return x;
+      }
+    }
+    return -1;
   }
   public void add (int index, String target){
     if (index < 0 || index > size()){
