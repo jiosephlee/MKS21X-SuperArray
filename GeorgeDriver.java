@@ -71,6 +71,7 @@ public class GeorgeDriver {
         for (int idx = 0; idx < alphabet.length() - 1; idx += 2) {
             almostDone.add(alphabet.substring(idx, idx + 2));
         }
+        System.out.println("almostDone = " + almostDone);
         System.out.println(almostDone.contains("op") + " ?= true");
         System.out.println(almostDone.contains("fg") + " ?= false");
         System.out.println(almostDone.indexOf("op") + " ?= 7");
@@ -79,6 +80,7 @@ public class GeorgeDriver {
         for (int idx = 0; idx < 15; idx++) {
             herether.add(idx % 4 + "");
         }
+        System.out.println("herether =" + herether);
         System.out.println(herether.lastIndexOf("3") + " ?= 11");
         System.out.println(herether.lastIndexOf("4") + " ?= -1");
         System.out.println(herether.lastIndexOf("0") + " ?= 12\n\nPart 2");
