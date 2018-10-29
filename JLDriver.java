@@ -119,7 +119,27 @@ public class JLDriver {
     System.out.println("The element that is removed is : " + SA.remove(1));
     System.out.println("Expected: SA is [\"C\", \"A\",\"E\", \"C\"]");
     System.out.println("Current Status of SA: " + SA);
+    System.out.println("Testing remove(int)\'s throw ... Expected : 2 error messages");
+    try{
+      SA.remove(7);
+    } catch (IndexOutOfBoundsException e){
+      System.out.println("Caught an Exception in remove(int)");
+    }
+    try{
+      SA.remove(-2);
+    } catch (IndexOutOfBoundsException e){
+      System.out.println("Caught an Exception in remove(int)");
+    }
 
-    System.out.println("Testing remove(int) ...  Expected : SA is [\"A\",\"E\", \"C\"]");
+    System.our.println();
+
+    System.out.println("Testing remove(String) ...  Expected : true");
+    System.out.println("The first element, \"C\" is removed ? : " + SA.remove());
+    System.out.println("Expected: SA is [\"A\",\"E\", \"C\"]");
+    System.out.println("Current Status of SA: " + SA);
+    System.out.println("Expected: false");
+    System.out.println(SA.remove("ASD"));
+
+    System.out.println("END OF TESTING");
   }
 }
