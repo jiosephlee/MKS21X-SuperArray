@@ -53,8 +53,7 @@ public class SuperArray{
 
   public String get(int index){
     if (index < 0 || index >= size()){
-      System.out.println("Error: Out of Bounds");
-      return null;
+      throw new IndexOutOfBoundsException("Error: Index out of Bounds");
     } else{
     return data[index];}
   }
@@ -62,7 +61,7 @@ public class SuperArray{
   public String set(int index, String value){
     String replaced = this.get(index);
     if (index < 0 || index >= size()){
-      return null;
+      throw new IndexOutOfBoundsException("Error: Index out of Bounds");
     }else{
     data[index] = value;
     }
@@ -70,7 +69,7 @@ public class SuperArray{
   }
 
   private void resize(){
-    String[] newData = new String[(size + 1) * 2];
+    String[] newData = new String[size * 2 + 1];
     for (int x = 0; x < this.size(); x++){
       newData[x] = data[x];
     }
@@ -105,8 +104,7 @@ public class SuperArray{
   }
   public void add (int index, String target){
     if (index < 0 || index > size()){
-      System.out.println("Error : Index out of bounds");
-      return;
+      throw new IndexOutOfBoundsException("Error: Index out of Bounds");
     }
     int x = 0;
     SuperArray newCopy = new SuperArray();
@@ -133,8 +131,7 @@ public class SuperArray{
     String output = "";
     SuperArray newCopy = new SuperArray();
     if (index < 0 || index >= size()){
-      System.out.println("Error: Index out of bounds");
-      return null;
+      throw new IndexOutOfBoundsException("Error: Index out of Bounds");
     }
     while (x < size){
       if (x == index){
