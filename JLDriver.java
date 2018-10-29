@@ -15,7 +15,7 @@ public class JLDriver {
 
     System.out.println();
 
-    System.out.println("Expected : true");
+    System.out.println("Testing isEmpty() ... Expected : true");
     System.out.println("isEmpty?: " + SA.isEmpty());
 
     System.out.println();
@@ -46,6 +46,9 @@ public class JLDriver {
     } catch (IndexOutOfBoundsException e){
       System.out.println("Caught an Exception in add(int,String)");
     }
+
+    System.out.println();
+
     System.out.println("Testing set(int,String) ...  Expected : \"A\"");
     System.out.println("SA.set(0,\"C\") will replace \"A\" at index 0 with \"C\"" + SA.set(0,"C"));
     System.out.println("SA\'s Current Status: " + "[\"C\",\"A\"]");
@@ -84,6 +87,39 @@ public class JLDriver {
     } catch (IndexOutOfBoundsException e){
       System.out.println("Caught an Exception in add(int,String)");
     }
+
+    System.out.println();
+
     System.out.println("Testing contains(String) ... Expected : true");
+    System.out.println("Does SA contain \"C\" ?: " + SA.contains("C"));
+    System.out.println("Expected : false");
+    System.out.println("Does SA contain \"C\" ?: " + SA.contains("F"));
+
+    System.out.println("Testing indexOf(String) ... Expected : 3");
+    System.out.println("Where is \"E\" in SA? :" + SA.indexOf("E"));
+    System.out.println("Expected : -1");
+    System.out.println("Where is \"E\" in SA? :" + SA.indexOf("Z"));
+
+    System.out.println();
+
+    SA.add("C");
+    System.out.println("Added \"C\" to the end of the list using add(String)");
+    System.out.println("Status of SA is: " + SA);
+
+    System.out.println();
+
+    System.out.println("Testing lastIndexOf(String) ... Expected : 4");
+    System.out.println("Where is \"C\" in SA? :" + SA.indexOf("C"));
+    System.out.println("Expected : -1");
+    System.out.println("Where is \"Z\" in SA? :" + SA.indexOf("Z"));
+
+    System.out.println();
+
+    System.out.println("Testing remove(int) ...  Expected : Removed element is \"D\"");
+    System.out.println("The element that is removed is : " + SA.remove(1));
+    System.out.println("Expected: SA is [\"C\", \"A\",\"E\", \"C\"]");
+    System.out.println("Current Status of SA: " + SA);
+
+    System.out.println("Testing remove(int) ...  Expected : SA is [\"A\",\"E\", \"C\"]");
   }
 }
