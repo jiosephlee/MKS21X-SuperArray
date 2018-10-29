@@ -131,10 +131,10 @@ public class JLDriver {
       System.out.println("Caught an Exception in remove(int)");
     }
 
-    System.our.println();
+    System.out.println();
 
     System.out.println("Testing remove(String) ...  Expected : true");
-    System.out.println("The first element, \"C\" is removed ? : " + SA.remove());
+    System.out.println("The first element, \"C\" is removed ? : " + SA.remove("C"));
     System.out.println("Expected: SA is [\"A\",\"E\", \"C\"]");
     System.out.println("Current Status of SA: " + SA);
     System.out.println("Expected: false");
