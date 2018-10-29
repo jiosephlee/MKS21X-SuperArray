@@ -2,6 +2,10 @@ public class SuperArray{
   private String[] data;
   private int size;
 
+  public SuperArray(int startingCapacity){
+    data = new String[startingCapacity];
+    size = 0;
+  }
   public SuperArray(){
     data = new String[10];
     size = 0;
@@ -9,7 +13,6 @@ public class SuperArray{
 
   public void clear(){
     size = 0;
-    data = new String[0];
   }
 
   public int size(){
@@ -24,26 +27,26 @@ public class SuperArray{
     if (size == data.length){
       resize();
     }
-    data[this.size()] = element;
+    data[size()] = element;
     size++;
     return true;
   }
 
   public String toString(){
     String output = "";
-    if (this.size() > 0){
-      output += this.get(0);
+    if (size() > 0){
+      output += get(0);
     }
-    for (int x = 1; x < this.size(); x++){
-      output += ", " + this.get(x);
+    for (int x = 1; x < size(); x++){
+      output += ", " + get(x);
     }
     return "[" + output + "]";
   }
 
   public String toStringDebug(){
     String output = "[";
-    if (this.size() > 0){
-      output += this.get(0);
+    if (size() > 0){
+      output += get(0);
     }
     for (int x = 1; x < data.length ; x++){
       output += ", " + data[x];
@@ -59,7 +62,7 @@ public class SuperArray{
   }
 
   public String set(int index, String value){
-    String replaced = this.get(index);
+    String replaced = get(index);
     if (index < 0 || index >= size()){
       throw new IndexOutOfBoundsException("Error: Index out of Bounds");
     }else{
@@ -69,15 +72,15 @@ public class SuperArray{
   }
 
   private void resize(){
-    String[] newData = new String[size * 2 + 1];
-    for (int x = 0; x < this.size(); x++){
+    String[] newData = new String[(size() * 2) + 1];
+    for (int x = 0; x < size(); x++){
       newData[x] = data[x];
     }
     data = newData;
   }
 
   public boolean contains(String target){
-    for (int x = 0; x < this.size(); x++){
+    for (int x = 0; x < size(); x++){
       if (this.get(x).equals(target)){
         return true;
       }
@@ -86,7 +89,7 @@ public class SuperArray{
   }
 
   public int indexOf(String target){
-    for (int x = 0; x < this.size(); x++){
+    for (int x = 0; x < size(); x++){
       if (this.get(x).equals(target)){
         return x;
       }
@@ -95,7 +98,7 @@ public class SuperArray{
   }
 
   public int lastIndexOf(String target){
-    for (int x = this.size() - 1 ; x >= 0 ; x= x-1){
+    for (int x = size() - 1 ; x >= 0 ; x= x-1){
       if (this.get(x).equals(target)){
         return x;
       }
@@ -107,17 +110,17 @@ public class SuperArray{
       throw new IndexOutOfBoundsException("Error: Index out of Bounds");
     }
     int x = 0;
-    SuperArray newCopy = new SuperArray();
-    if (index == size){
+    SuperArray newCopy = new SuperArray(0);
+    if (index == size()){
       add(target);
     }
     else{
-    while (x < size){
+    while (x < size()){
       if (x == index){
         newCopy.add(target);
-        newCopy.add(this.get(x));
+        newCopy.add(get(x));
       }else{
-      newCopy.add(this.get(x));}
+      newCopy.add(get(x));}
       x++;
 
     }
@@ -135,9 +138,9 @@ public class SuperArray{
     }
     while (x < size){
       if (x == index){
-        output = this.get(index);
+        output =get(index);
       }else{
-      newCopy.add(this.get(x));}
+      newCopy.add(get(x));}
       x++;
     }
     size = size - 1;
@@ -146,7 +149,7 @@ public class SuperArray{
   }
 
   public boolean remove (String target){
-    for(int x = 0; x < this.size(); x++){
+    for(int x = 0; x < size(); x++){
       if (data[x].equals(target)){
         remove(x);
         return true;
