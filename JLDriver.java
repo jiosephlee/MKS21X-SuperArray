@@ -7,6 +7,13 @@ public class JLDriver {
 
     System.out.println();
     System.out.println();
+
+    System.out.println("Testing SuperArray(int) ... Expected : Error Message");
+    try{
+      SuperArray SA = new SuperArray(-1);
+    } catch (IllegalArgumentException e){
+      System.out.println("Caught an error in Constructor : IllegalArgumentException");
+    }
     System.out.println("Testing SuperArray(int) ... SA should be [] even when debugged");
     SuperArray SA = new SuperArray(0);
 
@@ -152,7 +159,7 @@ public class JLDriver {
     System.out.println(SA.remove("ASD"));
 
     System.out.println();
-    
+
     System.out.println("Testing clear() ... Expected : SA should be []");
     SA.clear();
     System.out.println(SA);
